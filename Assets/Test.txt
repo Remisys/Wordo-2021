@@ -1,0 +1,26 @@
+
+CARD
+Germany is a country in ... Europe.
+It has ... states.
+... is the Capital of Germany
+<A>
+Central,16,Berlin
+</A>
+
+CARD
+German Translation of The House would be ... ...
+<A>
+Das,Haus
+</A>
+
+CARD
+1 + 1 = ... + 4 =
+<A>
+2,6
+</A>
+
+CARD
+Is Germany as of 2021 in the EU? (ja/nein)
+<A>
+ja
+</A>
