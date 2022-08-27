@@ -5,17 +5,17 @@ using UnityEngine.UI;
 using StatesNameSpace;
 public class Answer : MonoBehaviour
 {
-public Color green;
-public Color red;
-public Color transparent;
-public float timer = 1;
-float timer_current = 0;
-bool green_state = true; 
+	public Color green;
+	public Color red;
+	public Color transparent;
+	public float timer = 1;
+	float timer_current = 0;
+	bool green_state = true;
 
-InputField that;
-ColorBlock cb;
-Level lvl;
-Text placeholder;
+	InputField that;
+	ColorBlock cb;
+	Level lvl;
+	Text placeholder;
     // Start is called before the first frame update
     void Start()
     {	
@@ -23,11 +23,11 @@ Text placeholder;
 			placeholder = that.placeholder.GetComponent<Text>();
     	cb = that.colors;	
 			lvl = GameObject.Find("Level_Manager").GetComponent<Level>();
-		}
+	}
 
-    // Update is called once per frame
+    // Update is called once per frame. We perform our animation here
     void Update()
-		{
+	{
 			if(timer_current > 0){
 				timer_current -= Time.deltaTime;
 				if(green_state){
@@ -51,17 +51,20 @@ Text placeholder;
 			}
     }
 
-		public void GoRed(){
+	//Init the state for the animation of the input field
+	public void GoRed(){
 			timer_current = timer;
 			green_state = false;	
-		}
+	}
 
-		public void GoGreen(){
+	//Init the state for the animation of the input field
+	public void GoGreen(){
 			timer_current = timer;
 			green_state = true;
-		}
-		
-		void OnEnter(){
+	}
+
+	//Verifying the answer
+	void OnEnter(){
 			bool result = lvl.CheckAnswer(that.text);
 			if(result){ 
 				GoGreen();
@@ -74,7 +77,7 @@ Text placeholder;
 			that.text = "";
 			that.Select();
 			that.ActivateInputField();
-		}
+	}
 
 		
 }

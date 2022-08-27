@@ -10,6 +10,8 @@ char seperator = Path.DirectorySeparatorChar;
 static string projectpath = Application.dataPath;
 enum States{IDLE, TEXT, ANSWER, DONE}; 
 
+
+//Trying to read the card and parse it for generating cards based on the read file
 public static List<Card> Read(string name, string ext, string filepath, bool useprojectpath){
 	if(!DoExist(name, ext, filepath, useprojectpath)) return null; 
 	States state = States.IDLE;
@@ -42,14 +44,17 @@ public static List<Card> Read(string name, string ext, string filepath, bool use
 	return result;
 }
 
+//Does the file exist?
 public static bool DoExist(string name, string ext, string filepath, bool useprojectpath){
 	return File.Exists(FullPath(name, ext, filepath, useprojectpath));
 }
 
+//Return the full file name (file format inclusive)
 public static string CombineFile(string name, string ext){
 	return name + ext;
 }
 
+//Return the full file path
 public static string FullPath(string name, string ext, string filepath, bool useprojectpath){         
 	return useprojectpath? Path.Combine(projectpath, filepath, CombineFile(name, ext)) : Path.Combine(filepath, CombineFile(name,ext));
 }

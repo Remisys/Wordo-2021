@@ -86,6 +86,7 @@ public class Level : MonoBehaviour
 			state = States.PLAY;
 		}
 
+		//Pops up the next card on the list
 		public Card NextCard(){
 			if(Empty()){
 				state = States.DONE;
@@ -96,6 +97,7 @@ public class Level : MonoBehaviour
 			return result;
 		}
 
+		//Checking the answer while also updating the stats
 		public bool CheckAnswer(string s){
 			if(state == States.PLAY){
 				bool result = current.Answer(s);
@@ -119,10 +121,12 @@ public class Level : MonoBehaviour
 			return false;
 		}	
 
+		//Are there any cards left remaining
 		public bool Empty(){
 			return cards.Count ==  0;
 		}
 
+		//Reset the stats for a new fresh round
 		public void Reset(){
 			SetInfoText(wrong, "0x");
 			SetInfoText(right, "0x");
